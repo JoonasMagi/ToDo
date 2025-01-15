@@ -1,33 +1,33 @@
 erDiagram
 
-%% TABEL: USERS
+    %% TABEL: USERS
     USERS {
         int id PK "Primaarvõti (INT AUTO_INCREMENT)"
         varchar username "VARCHAR(50)"
         varchar email "VARCHAR(100)"
-        datetime created_at "DATETIME"
+        timestamp created_at "TIMESTAMP"
         timestamp last_login "TIMESTAMP"
     }
 
-%% TABEL: TASKS
+    %% TABEL: TASKS
     TASKS {
         int id PK "Primaarvõti (INT AUTO_INCREMENT)"
         int user_id FK "Viide USERS(id), ON DELETE CASCADE"
         varchar title "VARCHAR(100)"
         text description "TEXT"
         date due_date "DATE"
-        datetime created_at "DATETIME"
+        timestamp created_at "TIMESTAMP"
         timestamp updated_at "TIMESTAMP"
     }
 
-%% TABEL: CATEGORIES
+    %% TABEL: CATEGORIES
     CATEGORIES {
         int id PK "Primaarvõti (INT AUTO_INCREMENT)"
         int user_id FK "Viide USERS(id), ON DELETE CASCADE"
         varchar name "VARCHAR(50)"
     }
 
-%% TABEL: USER_SETTINGS
+    %% TABEL: USER_SETTINGS
     USER_SETTINGS {
         int id PK "Primaarvõti (INT AUTO_INCREMENT)"
         int user_id FK "Viide USERS(id), ON DELETE CASCADE"
@@ -35,16 +35,17 @@ erDiagram
         varchar setting_value "VARCHAR(100)"
     }
 
-%% TABEL: LOGS
+    %% TABEL: LOGS
     LOGS {
         int id PK "Primaarvõti (INT AUTO_INCREMENT)"
         int user_id FK "Viide USERS(id), ON DELETE RESTRICT"
         varchar action "VARCHAR(200)"
-        datetime logged_at "DATETIME"
+        timestamp logged_at "TIMESTAMP"
     }
 
-%% Seosed:
-%% '||' tähistab ühe (PK pool) ja '|{' tähistab mitut (FK pool).
+    %% Seosed (Relationship notations):
+    %% '||' = üks (PK)
+    %% '|{' = mitu (FK)
     USERS ||--|{ TASKS : "user_id"
     USERS ||--|{ CATEGORIES : "user_id"
     USERS ||--|{ USER_SETTINGS : "user_id"

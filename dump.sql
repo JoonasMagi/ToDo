@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------------------
--- 1. Loome uue andmebaasi (skeemi), näiteks: "my_todo_app_timestamp"
+-- 1. Loome uue andmebaasi (skeemi), näiteks: "my_todo_app"
 ------------------------------------------------------------------------------
-CREATE DATABASE IF NOT EXISTS my_todo_app_timestamp;
+CREATE DATABASE IF NOT EXISTS my_todo_app;
 USE my_todo_app_timestamp;
 
 ------------------------------------------------------------------------------
